@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { View, StyleSheet} from 'react-native';
-import { Container, Tab, Tabs, Card, Body, Form, Item, Input, Label, CardItem, Button, Text } from 'native-base';
-
+import { Container, Icon, Tab, Tabs, Header, Content } from 'native-base';
+import LoginTab from './LoginTab';
+import RegistrationTab from './RegistrationTab';
 export default class Login extends Component {
 
     static navigationOptions = {
@@ -11,38 +12,27 @@ export default class Login extends Component {
   render() {
     return (
         <Container style={styles.content}>
+        <Header androidStatusBarColor="#1abc9c" style={{display:'none'}}/> 
             <Tabs>
-                <Tab heading="Login">
-                    <View style={styles.loginWrapper}>
-                        <Card style={styles.login}>
-                            <CardItem>
-                                <Body>
-                                    <Form>
-                                        <Item style={{width:400}} floatingLabel>
-                                            <Label>Email Address</Label>
-                                            <Input />
-                                        </Item>
-                                        <Item floatingLabel last>
-                                            <Label>Password</Label>
-                                            <Input />
-                                        </Item>
-                                    </Form>
-                                </Body>
-                            </CardItem>
-                        </Card>
-                    </View>
-                    <View style={{alignItems: 'center', flex: 1, justifyContent: 'center'}}>
-                        <Button primary full style={styles.btn}>
-                            <Text>Login</Text>
-                        </Button>
-                        <Button primary full style={styles.btn}>
-                            <Text>Login with Facebook</Text>
-                        </Button>
-                    </View>
+                <Tab heading="Entrar"
+                    tabStyle={{backgroundColor: '#1abc9c'}} 
+                    textStyle={{color: '#fff'}} 
+                    activeTabStyle={{backgroundColor: '#1abc9c'}} 
+                    activeTextStyle={{color: '#fff', 
+                    fontWeight: 'normal'}}> 
+                        <Content scrollEnabled={false}>
+                            <LoginTab/>
+                        </Content>
                 </Tab>
-                <Tab heading="Register">
-                    <View>
-                    </View>
+                <Tab heading="Registrar" 
+                    tabStyle={{backgroundColor: '#1abc9c'}} 
+                    textStyle={{color: '#fff'}} 
+                    activeTabStyle={{backgroundColor: '#1abc9c'}} 
+                    activeTextStyle={{color: '#fff', 
+                    fontWeight: 'normal'}}>
+                    <Content scrollEnabled={false}>
+                        <RegistrationTab/>
+                    </Content>
                 </Tab>
             </Tabs>
         </Container>
@@ -55,20 +45,5 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
-    },
-    loginWrapper: {
-        height: 600,
-        padding: 20
-    },
-    login: {
-    },
-    label: {
-
-    },
-    btn: { 
-        marginHorizontal: 20, 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        marginVertical: 10
     }
 });
