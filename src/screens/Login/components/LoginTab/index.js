@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Actions} from 'react-native-router-flux';
 import { View, StyleSheet} from 'react-native';
 import { Container, Card, Body, Form, Item, Input, Label, CardItem, Button, Text } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -34,11 +35,13 @@ export default class LoginTab extends Component {
                 </Card>
             </View>
             <View style={styles.loginWrapper}>
-                <Button style={styles.btnEntrar} rounded block>
+                <Button style={styles.btnEntrar} rounded block onPress={() => Actions.home()}>
                     <Text uppercase={false}>Entrar</Text>
                 </Button>
-                <Button style={styles.btnFacebook} rounded block iconLeft>
-                    <Icon name='facebook' size={24} color='white' />
+                <Button style={styles.btnFacebook} 
+                    rounded block iconLeft                    
+                    >
+                    <Icon name='facebook' size={24} color='white' /> 
                     <Text uppercase={false}>Entrar com Facebook</Text>
                 </Button>
             </View>
